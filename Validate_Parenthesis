@@ -1,0 +1,23 @@
+  func isValid(_ s: String) -> Bool {
+    var stack: [Character] = []
+    let mapContainer: [Character: Character] = [")": "(", "}": "{", "]": "["]
+    for data in s {
+        print(mapContainer[data])
+        if let opening = mapContainer[data] {
+            if stack.last == opening {
+                stack.removeLast()
+            } else {
+                return false
+            }
+        } else {
+            stack.append(data)
+        }
+    }
+
+    return stack.isEmpty
+    }
+
+let result  = isValid("{}[]()")
+
+// let sta: [Character] = []
+// print()a
