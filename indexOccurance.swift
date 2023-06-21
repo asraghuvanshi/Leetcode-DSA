@@ -15,3 +15,21 @@
     Output: -1
     Explanation: "leeto" did not occur in "leetcode", so we return -1.
 */
+
+import Foundation
+
+class stringOccurance {
+    func strStr(_ haystack: String, _ needle: String) -> Int {
+        if let range = haystack.range(of: needle) {
+            return haystack.distance(from: haystack.startIndex, to: range.lowerBound)
+        } else {
+            return -1
+        }
+    }
+}
+
+
+
+let occurance = stringOccurance()
+
+occurance.strStr("Developer", "Dev")
