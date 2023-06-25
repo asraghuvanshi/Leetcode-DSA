@@ -14,6 +14,31 @@
     Input: haystack = "leetcode", needle = "leeto"
     Output: -1
     Explanation: "leeto" did not occur in "leetcode", so we return -1.
+func strStr(_ haystack: String, _ needle: String) -> Int {
+    if needle.isEmpty {
+        return 0
+    }
+    
+    if haystack.count < needle.count {
+        return -1
+    }
+    
+    let haystackLength = haystack.count
+    let needleLength = needle.count
+    
+    for i in 0...(haystackLength - needleLength) {
+        let startIndex = haystack.index(haystack.startIndex, offsetBy: i)
+        let endIndex = haystack.index(startIndex, offsetBy: needleLength)
+        let substring = haystack[startIndex..<endIndex]
+        
+        if substring == needle {
+            return i
+        }
+    }
+    
+    return -1
+}
+
 */
 
 import Foundation
